@@ -3,10 +3,10 @@ import type { ImagePalette } from '../contexts';
 /**
  * Convert HSL (Hue, Saturation, Lightness) values to a hexadecimal color code.
  *
- * @param h - The hue value in degrees (0-360).
- * @param s - The saturation value as a decimal between 0 and 1.
- * @param l - The lightness value as a decimal between 0 and 1.
- * @returns A hexadecimal color code string in the format "#RRGGBB".
+ * @param {number} h - The hue value in degrees (0-360).
+ * @param {number} s - The saturation value as a decimal between 0 and 1.
+ * @param {number} l - The lightness value as a decimal between 0 and 1.
+ * @returns {ImagePalette.HEX} A hexadecimal color code string in the format "#RRGGBB".
  */
 export function hslToHex(h: number, s: number, l: number): ImagePalette.HEX {
   // Ensure s and l are within valid ranges [0, 1].

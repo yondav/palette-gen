@@ -2,17 +2,21 @@ import { useCallback, useState } from 'react';
 import { BiCopyAlt } from 'react-icons/bi';
 
 import { useCopyToClipboard } from '../../hooks';
+import Button from '../Button';
 
 interface CopyButtonProps {
   content: string;
+  hidden?: boolean;
 }
 
 /**
- * Component for copying text to the clipboard.
+ * A component for copying text to the clipboard.
  *
+ * @component
  * @param {string} content - The text content to be copied.
+ * @param {boolean} [hidden] - Indicates whether the copy button is hidden, useful for copying text programmatically.
  */
-export default function CopyButton({ content }: CopyButtonProps) {
+export default function CopyButton({ content, hidden }: CopyButtonProps) {
   const [, setCopiedText] = useCopyToClipboard();
 
   const [copied, setCopied] = useState<boolean | 'blank'>('blank');
@@ -27,30 +31,35 @@ export default function CopyButton({ content }: CopyButtonProps) {
   }, [content, setCopiedText]);
 
   return (
-    <>
-      <button
-        className='palette-feature dark squared absolute top-1 right-1'
-        onClick={handleCopy}
-      >
-        <BiCopyAlt
-          className={
-            typeof copied === 'string' ? '' : copied ? 'text-green-400' : 'text-red-400'
+    <div
+      className={`absolute ${
+        hidden ? 'top-0 left-0 w-full h-full cursor-pointer' : 'top-1 right-1'
+      }`}
+      onClick={hidden ? handleCopy : undefined}
+    >
+      <div className={hidden ? 'hidden' : ''}>
+        <Button
+          variant='dark'
+          squared
+          copy={
+            <BiCopyAlt
+              className={
+                typeof copied === 'string'
+                  ? ''
+                  : copied
+                  ? 'text-green-400'
+                  : 'text-red-400'
+              }
+            />
           }
+          onClick={handleCopy}
         />
-      </button>
+      </div>
       {typeof copied !== 'string' && (
-        <div className='absolute top-10 right-0 bg-stone-200 shadow-lg transition-all'>
-          {copied ? (
-            <p className='text-green-700 border border-green-700 rounded-md p-1 text-xs'>
-              Copied!
-            </p>
-          ) : (
-            <p className='text-red-700 border border-red-700 rounded-md p-1 text-xs'>
-              Clipboard unsupported!
-            </p>
-          )}
+        <div className={`toast-container ${copied ? 'success' : 'fail'}`}>
+          <p>{copied ? 'Copied!' : 'Clipboard unsupported!'}</p>
         </div>
       )}
-    </>
+    </div>
   );
 }

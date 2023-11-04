@@ -20,11 +20,23 @@ export type Shades = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 
 export type ColorShades = { [key in Shades]: Color };
 
 // Represents the shape of a color palette.
-export type Palette = {
+export interface Palette {
   neutral: ColorShades;
   black: Color;
   white: Color;
-} & { [key: string]: ColorShades };
+  primary?: ColorShades;
+  secondary?: ColorShades;
+  accent?: ColorShades;
+}
+
+export type DefinitePalette = {
+  black: Color;
+  white: Color;
+  neutral: ColorShades;
+  primary: ColorShades;
+  secondary: ColorShades;
+  accent: ColorShades;
+};
 
 // Represents the values surrounding an uploaded image.
 export type ImageFile = File;

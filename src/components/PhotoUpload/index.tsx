@@ -1,9 +1,13 @@
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef, type ChangeEvent } from 'react';
 import { BsCloudUpload } from 'react-icons/bs';
 
 import { ImagePalette } from '../../contexts';
 
-// Component responsible for handling image uploads and triggering color palette generation.
+/**
+ * Component responsible for handling image uploads and triggering color palette generation.
+ *
+ * @component
+ */
 export default function PhotoUpload() {
   const {
     state: { view },
@@ -26,10 +30,10 @@ export default function PhotoUpload() {
    * Handles the change event when a user selects a file for upload.
    * Initiates the image upload and triggers color palette generation.
    *
-   * @param {React.ChangeEvent<HTMLInputElement>} e - The change event containing the selected file.
+   * @param {ChangeEvent<HTMLInputElement>} e - The change event containing the selected file.
    */
   const handleFileChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    (e: ChangeEvent<HTMLInputElement>) => {
       const files = e.target.files;
       if (files) {
         const file = files[0];

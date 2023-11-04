@@ -8,7 +8,9 @@ interface ShadeProps {
 /**
  * Displays the shades of a color, if available.
  *
- * @param {ImagePalette.ColorShades} color - An object containing color shades.
+ * @component
+ * @param {Object} props - The component's props.
+ * @param {ImagePalette.ColorShades} props.color - An object containing color shades.
  */
 export default function Shades({ color }: ShadeProps) {
   return (

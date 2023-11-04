@@ -5,7 +5,11 @@ import { hexToHsl, hexToRgb } from '../../utils';
 import Button from '../Button';
 import CopyButton from '../CopyButton';
 
-// A component to display the color palette in different formats and color notations.
+/**
+ * A component to display the color palette in different formats and color notations.
+ *
+ * @component
+ */
 export default function PaletteCode() {
   const {
     state: { palette },

@@ -4,7 +4,11 @@ import { ImagePalette } from '../../contexts';
 import Button from '../Button';
 import ExampleVector from '../ExampleVector';
 
-// Displays either an uploaded image or example vectors based on the state.
+/**
+ * Displays either an uploaded image or example vectors based on the state.
+ *
+ * @component
+ */
 export default function PaletteImage() {
   const {
     state: { image },

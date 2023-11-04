@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* generics */
+body {
+	@apply min-h-screen bg-stone-50 text-stone-950 font-brand;
+		background-image: url("../../public/assets/pencils.png");
+		background-size: 300px;
+		background-repeat: repeat-x;
+		background-position: bottom;;
+}
+
+h1 {
+	@apply text-base md:text-xl leading-loose tracking-widest font-light uppercase;
+}
+
+p {
+	@apply text-sm md:text-base leading-normal;
+}
+
+main {
+	@apply max-w-screen-lg p-2 sm:p-4 md:p-8 mx-auto mt-20;
+}
+
+/* Button Component */
+button.palette-feature {
+	@apply py-1 px-2 bg-stone-100 rounded-lg hover:shadow transition-all hover:brightness-90;
+}
+
+button.palette-feature.squared {
+	@apply py-2;
+}
+
+button.palette-feature.dark {
+	@apply bg-stone-800 text-stone-50;
+}
+
+/* CopyButton Component */
+.toast-container {
+	@apply z-50 fixed top-0 left-1/2 -translate-x-1/2 p-2 rounded-xl bg-stone-200 shadow-lg transition-all border;
+}
+
+.toast-container.success {
+	@apply border-green-800;
+}
+
+.toast-container.fail {
+	@apply border-red-800;
+}
+
+.toast-container.success p {
+	@apply text-green-700;
+}
+
+.toast-container.fail p {
+	@apply text-red-700;
+}
+
+/* Header Component */
+header.page-header {
+	@apply w-full p-4 bg-stone-100 flex justify-between items-center;
+}
+
+header.page-header h1 {
+	@apply pointer-events-none;
+}
+
+/* PaletteViewFeatures Component */
+section.palette-view-features {
+	@apply bg-stone-800 w-full rounded-xl overflow-hidden flex flex-col md:flex-row gap-4 p-4;
+}
+
+section.palette-view-features .container {
+	@apply w-full basis-1/2;
+}
+
+section.palette-view-features .container header {
+	@apply py-2 flex justify-between;
+}
+
+img.uploaded-image {
+	@apply w-full max-h-[500px] h-full object-cover object-center rounded-b-lg;
+}
+
+svg.example {
+	@apply min-h-full min-w-full w-auto h-auto;
+}
+
+pre.palette-code {
+	@apply p-4 bg-stone-100 max-h-[500px] overflow-scroll rounded-b-lg;
+}
+
+/* ColorPaletteGenerator Component */
+section.palette-container {
+	@apply py-4 mx-auto sm:mx-0 text-sm w-fit;
+}
+
+section.palette-container .palette {
+	@apply flex flex-col md:flex-row lg:flex-col gap-2;
+}
+
+/* Swatch Component */
+.swatch {
+	@apply relative w-20 h-20 flex justify-center items-center flex-col rounded-lg;
+}
+
+.swatch-shades {
+	@apply flex flex-col lg:flex-row gap-1;
+}
+
+/* PhotoUpload Component */
+section.photo-upload {
+	@apply relative w-80 h-60 sm:w-[30rem] sm:h-80 md:w-[36rem] md:h-[28rem] mx-auto cursor-pointer border-spacing-2.5 border-2 border-dashed border-stone-300 rounded-xl p-8 bg-stone-200 flex justify-center items-center;
+}
+
+section.photo-upload .icon-container {
+	@apply flex flex-col items-center justify-center;
+}
+
+section.photo-upload .icon-container svg {
+	@apply p-4 text-8xl md:text-9xl text-stone-400 border-4 border-dashed border-stone-300 rounded-xl;
+}
+
+section.photo-upload .icon-container p {
+	@apply text-center text-stone-400 max-w-sm;
+}
+
+footer.page-footer {
+	@apply relative w-full p-12 bg-stone-100/50 text-center;
+}
+
+footer.page-footer p {
+	@apply ml-auto;
+}
+
+footer.page-footer a svg {
+	@apply ml-auto absolute bottom-4 right-4 text-2xl
+}
